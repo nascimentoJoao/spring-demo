@@ -21,5 +21,18 @@ public class LinhaOnibusService {
 		return this.linhaRestTemplate.getAll();
 	}
 	
+	public ResponseEntity<Object> getLinhaByName(String linhaName) throws JsonMappingException, JsonProcessingException {
+		ResponseEntity<List<LinhaOnibus>> apiResponse = this.linhaRestTemplate.getAll();
+		
+		List<LinhaOnibus> linhasOnibus = apiResponse.getBody();
+		for(LinhaOnibus linha : linhasOnibus) {
+			if (linha.getNome().equalsIgnoreCase(linhaName)) {
+				return ResponseEntity.ok().body(linha);
+			}
+		}
+		
+		return ResponseEntity.notFound().build();
+	}
+	
 	
 }

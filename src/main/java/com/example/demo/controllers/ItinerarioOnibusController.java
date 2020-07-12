@@ -14,14 +14,14 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 
 @RestController
-@RequestMapping("/api/itinerarios")
+@RequestMapping("/api/itinerarios/")
 public class ItinerarioOnibusController {
 
 		@Autowired
 		private ItinerarioOnibusService itinerarioService;
 
 		@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-		@RequestMapping("/{linha}")
+		@RequestMapping("{linha}")
 		public ResponseEntity<ItinerarioOnibus> getAllLinhasOnibus(@PathVariable(value="linha") String linhaOnibus) throws JsonMappingException, JsonProcessingException {
 			return this.itinerarioService.getAll(linhaOnibus);
 		}
