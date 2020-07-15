@@ -42,4 +42,6 @@ https://spring-demo-joaonascimento.herokuapp.com/
 
 ## Postman
 
-As rotas disponíveis para consulta estão na Collection abaixo:
+As rotas disponíveis para consulta estão na Collection:
+
+```API Spring Boot.postman_collection.json```
