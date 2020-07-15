@@ -32,7 +32,6 @@ public class LinhaOnibusService {
 		}
 		
 		return ResponseEntity.notFound().build();
-	}
-	
+	}	
 	
 }
