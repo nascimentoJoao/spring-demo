@@ -19,7 +19,6 @@ public class PontoTaxiController {
 	@Autowired
 	private PontoTaxiService pontoTaxiService;
 	
-	
 	@GetMapping("{name}")
 	public ResponseEntity<Object> getPontoTaxiByName(@PathVariable(value = "name") String pontoTaxiName) {
 		PontoTaxi pontoTaxi =  this.pontoTaxiService.getPontoTaxiByName(pontoTaxiName);
