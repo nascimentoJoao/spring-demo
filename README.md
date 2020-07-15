@@ -34,3 +34,12 @@ Execute o container da aplicação e a ligação com o banco de dados utilizando
 
 Seu ambiente estará pronto para uso de maneira local!
 
+## Heroku
+
+O aplicativo está disponível no Heroku:
+
+https://spring-demo-joaonascimento.herokuapp.com/
+
+## Postman
+
+As rotas disponíveis para consulta estão na Collection abaixo:
