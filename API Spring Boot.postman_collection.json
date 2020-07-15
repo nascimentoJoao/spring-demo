@@ -1,0 +1,237 @@
+{
+	"info": {
+		"_postman_id": "134b5c9f-fb40-431b-aed5-9b41f2054650",
+		"name": "API Spring Boot",
+		"description": "Uma API para realizar consultas de itinerários de ônibus e táxis.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Retornar todas as linhas de ônibus [Externo]",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{homo}}linhas/",
+					"host": [
+						"{{homo}}linhas"
+					],
+					"path": [
+						""
+					]
+				},
+				"description": "Realiza consulta externa a API de dados abertos de Porto Alegre."
+			},
+			"response": []
+		},
+		{
+			"name": "Retornar itinerario de uma linha [Externo]",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{homo}}itinerarios/<id-linha>",
+					"host": [
+						"{{homo}}itinerarios"
+					],
+					"path": [
+						"<id-linha>"
+					]
+				},
+				"description": "Retornar a lista do itinerário de uma linha específica"
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastrar Ponto de Táxi",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nome\": \"PONTO-ZONA-SUL\",\n    \"lat\": \"-21.453464\",\n    \"lng\": \"-99.213211\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{homo}}taxi/",
+					"host": [
+						"{{homo}}taxi"
+					],
+					"path": [
+						""
+					]
+				},
+				"description": "Cadastra um novo ponto de táxi. A requisição espera um objeto JSON no seguinte formato:\n\n{\n    \"nome\":\"PONTO-ZONA-SUL\",\n    \"lat\":\"-30.582349\",\n    \"lng\":\"-14.845711\"\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "Retornar todos os pontos de táxi",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{homo}}taxi/",
+					"host": [
+						"{{homo}}taxi"
+					],
+					"path": [
+						""
+					]
+				},
+				"description": "Retorna uma lista com os pontos de táxi cadastrados"
+			},
+			"response": []
+		},
+		{
+			"name": "Retornar ponto de táxi por nome",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{homo}}taxi/<nome-ponto>",
+					"host": [
+						"{{homo}}taxi"
+					],
+					"path": [
+						"<nome-ponto>"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastrar linha e itinerário (WIP)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"codigo\": \"1234\",\n    \"nome\": \"LINHA-ESPECIAL\",\n    \"itinerario\": [\n        {\n            \"lat\": \"-12.93744\",\n            \"lng\": \"-34.37942\"\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{homo}}linha/itinerario/",
+					"host": [
+						"{{homo}}linha"
+					],
+					"path": [
+						"itinerario",
+						""
+					]
+				},
+				"description": "Cadastra uma linha e um conjunto de itinerários para ela. A requisição pede um objeto JSON no seguinte formato:\n\n{\n    \"codigo\": \"1234\",\n    \"nome\": \"LINHA-ESPECIAL\",\n    \"itinerario\": [\n        {\n            \"lat\": \"-12.93744\",\n            \"lng\": \"-34.37942\"\n        }\n    ]\n}"
+			},
+			"response": []
+		},
+		{
+			"name": "Alterar linha e itinerário cadastrado (WIP)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\n        \"id\": 1,\n        \"codigo\": \"3451\",\n        \"nome\": \"LINHA-ESPECIAL\",\n        \"itinerario\": []\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{homo}}linha/itinerario/",
+					"host": [
+						"{{homo}}linha"
+					],
+					"path": [
+						"itinerario",
+						""
+					]
+				},
+				"description": "A requisição é similar ao cadastro de uma nova linha e itinerário, mas é necessário agora informar o id gerado no cadastro para efetuar a modificação na respectiva entidade."
+			},
+			"response": []
+		},
+		{
+			"name": "Retornar as linhas cadastradas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{homo}}linha/itinerario/",
+					"host": [
+						"{{homo}}linha"
+					],
+					"path": [
+						"itinerario",
+						""
+					]
+				},
+				"description": "Retorna todas as linhas persistidas no banco de dados."
+			},
+			"response": []
+		},
+		{
+			"name": "Deletar linha e itinerário",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{homo}}linha/itinerario/<id-linha-itinerario>",
+					"host": [
+						"{{homo}}linha"
+					],
+					"path": [
+						"itinerario",
+						"<id-linha-itinerario>"
+					]
+				},
+				"description": "Deleta uma entidade cadastrada através do id gerado em sua criação."
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "5018c450-34dd-46a3-98a9-bca84364c1e8",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "e69318e5-0be3-4779-bef7-afb52b494b6e",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "80eb129a-cc40-422d-a487-9e301281b642",
+			"key": "local",
+			"value": "http://localhost:8082/api/"
+		},
+		{
+			"id": "6e3c4b21-b0b6-40c6-a4a9-ccf7689f05aa",
+			"key": "homo",
+			"value": "https://spring-demo-joaonascimento.herokuapp.com/api/"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
