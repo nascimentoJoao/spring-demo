@@ -31,10 +31,5 @@ public class PoaTransporteItinerarioRestClient {
 		
 		return new ResponseEntity<ItinerarioOnibus>(response, HttpStatus.OK);
 	}
-	
-	@Bean
-	public RestTemplate restTemplate() {
-		return new RestTemplate();
-	}
 
 }
