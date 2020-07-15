@@ -3,12 +3,7 @@ Repositório contendo uma demo utilizando Spring Boot.
 
 ## Ambiente Docker
 Para executar a aplicação utilizando o Docker, é necessário iniciar uma instância de PostgreSQL utilizando os seguintes comandos:
-```sudo docker run -d 
---name <nome-container> 
--e POSTGRES_DB=<database> 
--e POSTGRES_USER=<database_user>
--e POSTGRES_PASSWORD=<database_password>
-postgres:10.4```
+```sudo docker run -d --name <nome-container> -e POSTGRES_DB=<database> -e POSTGRES_USER=<database_user>-e POSTGRES_PASSWORD=<database_password> postgres:10.4```
 
 Iniciado o container, execute o comando:
 
@@ -25,7 +20,7 @@ Agora devemos compilar e empacotar a aplicação.
 
 ```mvn package -DskipTests```
 
-A flag '-DskipTests' é utilizada para o comando package não realizar os testes de conexão com banco de dados antes de construir empacotar o arquivo Jar.
+A flag '-DskipTests' é utilizada para o comando package não realizar os testes da aplicação, incluindo os de conexão com banco de dados antes de construir empacotar o arquivo Jar.
 
 Estando na raíz do projeto, utilize o comando:
 
