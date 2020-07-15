@@ -17,13 +17,13 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 @RequestMapping("/api/itinerarios/")
 public class ItinerarioOnibusController {
 
-		@Autowired
-		private ItinerarioOnibusService itinerarioService;
+	@Autowired
+	private ItinerarioOnibusService itinerarioService;
 
-		@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-		@RequestMapping("{linha}")
-		public ResponseEntity<ItinerarioOnibus> getAllLinhasOnibus(@PathVariable(value="linha") String linhaOnibus) throws JsonMappingException, JsonProcessingException {
-			return this.itinerarioService.getAll(linhaOnibus);
-		}
+	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping("{linha}")
+	public ResponseEntity<ItinerarioOnibus> getAllLinhasOnibus(@PathVariable(value="linha") String linhaOnibus) throws JsonMappingException, JsonProcessingException {
+		return this.itinerarioService.getAll(linhaOnibus);
+	}
 	
 }

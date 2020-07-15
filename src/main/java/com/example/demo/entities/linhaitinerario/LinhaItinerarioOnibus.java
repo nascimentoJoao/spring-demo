@@ -1,11 +1,16 @@
-package com.example.demo.entities;
+package com.example.demo.entities.linhaitinerario;
+
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+import com.example.demo.entities.itinerario.CoordenadasItinerario;
 
 @Entity
-public class LinhaItinerario {
+public class LinhaItinerarioOnibus {
 	
 	@Id
 	@GeneratedValue
@@ -15,19 +20,16 @@ public class LinhaItinerario {
 	
 	private String nome;
 	
-	private String lat;
+	@OneToMany(mappedBy = "linhaItinerario")
+	private List<CoordenadasItinerario> itinerario;
 	
-	private String lng;
-	
-	public LinhaItinerario() { }
+	public LinhaItinerarioOnibus() { }
 
-	public LinhaItinerario(Long id, String codigo, String nome, String lat, String lng) {
+	public LinhaItinerarioOnibus(Long id, String codigo, String nome) {
 		super();
 		this.id = id;
 		this.codigo = codigo;
 		this.nome = nome;
-		this.lat = lat;
-		this.lng = lng;
 	}
 
 	public Long getId() {
@@ -54,20 +56,12 @@ public class LinhaItinerario {
 		this.nome = nome;
 	}
 
-	public String getLat() {
-		return lat;
+	public List<CoordenadasItinerario> getItinerario() {
+		return itinerario;
 	}
 
-	public void setLat(String lat) {
-		this.lat = lat;
-	}
-
-	public String getLng() {
-		return lng;
-	}
-
-	public void setLng(String lng) {
-		this.lng = lng;
+	public void setItinerario(List<CoordenadasItinerario> itinerario) {
+		this.itinerario = itinerario;
 	}
 	
 }
